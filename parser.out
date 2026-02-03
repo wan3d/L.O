@@ -1,0 +1,804 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ID
+    VALUE
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> sentences
+Rule 2     sentences -> sentences sentence
+Rule 3     sentences -> sentence
+Rule 4     sentence -> expression SEMICOLON
+Rule 5     expression -> TRUE
+Rule 6     expression -> FALSE
+Rule 7     expression -> AND LARROW expression COMMA expression RARROW
+Rule 8     expression -> OR LARROW expression COMMA expression RARROW
+Rule 9     expression -> NOT LARROW expression RARROW
+Rule 10    expression -> XOR LARROW expression COMMA expression RARROW
+Rule 11    expression -> BUFFER LARROW expression RARROW
+Rule 12    expression -> NAND LARROW expression COMMA expression RARROW
+Rule 13    expression -> NOR LARROW expression COMMA expression RARROW
+Rule 14    expression -> XNOR LARROW expression COMMA expression RARROW
+
+Terminals, with rules where they appear
+
+AND                  : 7
+BUFFER               : 11
+COMMA                : 7 8 10 12 13 14
+FALSE                : 6
+ID                   : 
+LARROW               : 7 8 9 10 11 12 13 14
+NAND                 : 12
+NOR                  : 13
+NOT                  : 9
+OR                   : 8
+RARROW               : 7 8 9 10 11 12 13 14
+SEMICOLON            : 4
+TRUE                 : 5
+VALUE                : 
+XNOR                 : 14
+XOR                  : 10
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 4 7 7 8 8 9 10 10 11 12 12 13 13 14 14
+program              : 0
+sentence             : 2 3
+sentences            : 1 2
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . sentences
+    (2) sentences -> . sentences sentence
+    (3) sentences -> . sentence
+    (4) sentence -> . expression SEMICOLON
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    program                        shift and go to state 1
+    sentences                      shift and go to state 2
+    sentence                       shift and go to state 3
+    expression                     shift and go to state 4
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> sentences .
+    (2) sentences -> sentences . sentence
+    (4) sentence -> . expression SEMICOLON
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    $end            reduce using rule 1 (program -> sentences .)
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    sentence                       shift and go to state 15
+    expression                     shift and go to state 4
+
+state 3
+
+    (3) sentences -> sentence .
+
+    TRUE            reduce using rule 3 (sentences -> sentence .)
+    FALSE           reduce using rule 3 (sentences -> sentence .)
+    AND             reduce using rule 3 (sentences -> sentence .)
+    OR              reduce using rule 3 (sentences -> sentence .)
+    NOT             reduce using rule 3 (sentences -> sentence .)
+    XOR             reduce using rule 3 (sentences -> sentence .)
+    BUFFER          reduce using rule 3 (sentences -> sentence .)
+    NAND            reduce using rule 3 (sentences -> sentence .)
+    NOR             reduce using rule 3 (sentences -> sentence .)
+    XNOR            reduce using rule 3 (sentences -> sentence .)
+    $end            reduce using rule 3 (sentences -> sentence .)
+
+
+state 4
+
+    (4) sentence -> expression . SEMICOLON
+
+    SEMICOLON       shift and go to state 16
+
+
+state 5
+
+    (5) expression -> TRUE .
+
+    SEMICOLON       reduce using rule 5 (expression -> TRUE .)
+    COMMA           reduce using rule 5 (expression -> TRUE .)
+    RARROW          reduce using rule 5 (expression -> TRUE .)
+
+
+state 6
+
+    (6) expression -> FALSE .
+
+    SEMICOLON       reduce using rule 6 (expression -> FALSE .)
+    COMMA           reduce using rule 6 (expression -> FALSE .)
+    RARROW          reduce using rule 6 (expression -> FALSE .)
+
+
+state 7
+
+    (7) expression -> AND . LARROW expression COMMA expression RARROW
+
+    LARROW          shift and go to state 17
+
+
+state 8
+
+    (8) expression -> OR . LARROW expression COMMA expression RARROW
+
+    LARROW          shift and go to state 18
+
+
+state 9
+
+    (9) expression -> NOT . LARROW expression RARROW
+
+    LARROW          shift and go to state 19
+
+
+state 10
+
+    (10) expression -> XOR . LARROW expression COMMA expression RARROW
+
+    LARROW          shift and go to state 20
+
+
+state 11
+
+    (11) expression -> BUFFER . LARROW expression RARROW
+
+    LARROW          shift and go to state 21
+
+
+state 12
+
+    (12) expression -> NAND . LARROW expression COMMA expression RARROW
+
+    LARROW          shift and go to state 22
+
+
+state 13
+
+    (13) expression -> NOR . LARROW expression COMMA expression RARROW
+
+    LARROW          shift and go to state 23
+
+
+state 14
+
+    (14) expression -> XNOR . LARROW expression COMMA expression RARROW
+
+    LARROW          shift and go to state 24
+
+
+state 15
+
+    (2) sentences -> sentences sentence .
+
+    TRUE            reduce using rule 2 (sentences -> sentences sentence .)
+    FALSE           reduce using rule 2 (sentences -> sentences sentence .)
+    AND             reduce using rule 2 (sentences -> sentences sentence .)
+    OR              reduce using rule 2 (sentences -> sentences sentence .)
+    NOT             reduce using rule 2 (sentences -> sentences sentence .)
+    XOR             reduce using rule 2 (sentences -> sentences sentence .)
+    BUFFER          reduce using rule 2 (sentences -> sentences sentence .)
+    NAND            reduce using rule 2 (sentences -> sentences sentence .)
+    NOR             reduce using rule 2 (sentences -> sentences sentence .)
+    XNOR            reduce using rule 2 (sentences -> sentences sentence .)
+    $end            reduce using rule 2 (sentences -> sentences sentence .)
+
+
+state 16
+
+    (4) sentence -> expression SEMICOLON .
+
+    TRUE            reduce using rule 4 (sentence -> expression SEMICOLON .)
+    FALSE           reduce using rule 4 (sentence -> expression SEMICOLON .)
+    AND             reduce using rule 4 (sentence -> expression SEMICOLON .)
+    OR              reduce using rule 4 (sentence -> expression SEMICOLON .)
+    NOT             reduce using rule 4 (sentence -> expression SEMICOLON .)
+    XOR             reduce using rule 4 (sentence -> expression SEMICOLON .)
+    BUFFER          reduce using rule 4 (sentence -> expression SEMICOLON .)
+    NAND            reduce using rule 4 (sentence -> expression SEMICOLON .)
+    NOR             reduce using rule 4 (sentence -> expression SEMICOLON .)
+    XNOR            reduce using rule 4 (sentence -> expression SEMICOLON .)
+    $end            reduce using rule 4 (sentence -> expression SEMICOLON .)
+
+
+state 17
+
+    (7) expression -> AND LARROW . expression COMMA expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 25
+
+state 18
+
+    (8) expression -> OR LARROW . expression COMMA expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 26
+
+state 19
+
+    (9) expression -> NOT LARROW . expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 27
+
+state 20
+
+    (10) expression -> XOR LARROW . expression COMMA expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 28
+
+state 21
+
+    (11) expression -> BUFFER LARROW . expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 29
+
+state 22
+
+    (12) expression -> NAND LARROW . expression COMMA expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 30
+
+state 23
+
+    (13) expression -> NOR LARROW . expression COMMA expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 31
+
+state 24
+
+    (14) expression -> XNOR LARROW . expression COMMA expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 32
+
+state 25
+
+    (7) expression -> AND LARROW expression . COMMA expression RARROW
+
+    COMMA           shift and go to state 33
+
+
+state 26
+
+    (8) expression -> OR LARROW expression . COMMA expression RARROW
+
+    COMMA           shift and go to state 34
+
+
+state 27
+
+    (9) expression -> NOT LARROW expression . RARROW
+
+    RARROW          shift and go to state 35
+
+
+state 28
+
+    (10) expression -> XOR LARROW expression . COMMA expression RARROW
+
+    COMMA           shift and go to state 36
+
+
+state 29
+
+    (11) expression -> BUFFER LARROW expression . RARROW
+
+    RARROW          shift and go to state 37
+
+
+state 30
+
+    (12) expression -> NAND LARROW expression . COMMA expression RARROW
+
+    COMMA           shift and go to state 38
+
+
+state 31
+
+    (13) expression -> NOR LARROW expression . COMMA expression RARROW
+
+    COMMA           shift and go to state 39
+
+
+state 32
+
+    (14) expression -> XNOR LARROW expression . COMMA expression RARROW
+
+    COMMA           shift and go to state 40
+
+
+state 33
+
+    (7) expression -> AND LARROW expression COMMA . expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 41
+
+state 34
+
+    (8) expression -> OR LARROW expression COMMA . expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 42
+
+state 35
+
+    (9) expression -> NOT LARROW expression RARROW .
+
+    SEMICOLON       reduce using rule 9 (expression -> NOT LARROW expression RARROW .)
+    COMMA           reduce using rule 9 (expression -> NOT LARROW expression RARROW .)
+    RARROW          reduce using rule 9 (expression -> NOT LARROW expression RARROW .)
+
+
+state 36
+
+    (10) expression -> XOR LARROW expression COMMA . expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 43
+
+state 37
+
+    (11) expression -> BUFFER LARROW expression RARROW .
+
+    SEMICOLON       reduce using rule 11 (expression -> BUFFER LARROW expression RARROW .)
+    COMMA           reduce using rule 11 (expression -> BUFFER LARROW expression RARROW .)
+    RARROW          reduce using rule 11 (expression -> BUFFER LARROW expression RARROW .)
+
+
+state 38
+
+    (12) expression -> NAND LARROW expression COMMA . expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 44
+
+state 39
+
+    (13) expression -> NOR LARROW expression COMMA . expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 45
+
+state 40
+
+    (14) expression -> XNOR LARROW expression COMMA . expression RARROW
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . AND LARROW expression COMMA expression RARROW
+    (8) expression -> . OR LARROW expression COMMA expression RARROW
+    (9) expression -> . NOT LARROW expression RARROW
+    (10) expression -> . XOR LARROW expression COMMA expression RARROW
+    (11) expression -> . BUFFER LARROW expression RARROW
+    (12) expression -> . NAND LARROW expression COMMA expression RARROW
+    (13) expression -> . NOR LARROW expression COMMA expression RARROW
+    (14) expression -> . XNOR LARROW expression COMMA expression RARROW
+
+    TRUE            shift and go to state 5
+    FALSE           shift and go to state 6
+    AND             shift and go to state 7
+    OR              shift and go to state 8
+    NOT             shift and go to state 9
+    XOR             shift and go to state 10
+    BUFFER          shift and go to state 11
+    NAND            shift and go to state 12
+    NOR             shift and go to state 13
+    XNOR            shift and go to state 14
+
+    expression                     shift and go to state 46
+
+state 41
+
+    (7) expression -> AND LARROW expression COMMA expression . RARROW
+
+    RARROW          shift and go to state 47
+
+
+state 42
+
+    (8) expression -> OR LARROW expression COMMA expression . RARROW
+
+    RARROW          shift and go to state 48
+
+
+state 43
+
+    (10) expression -> XOR LARROW expression COMMA expression . RARROW
+
+    RARROW          shift and go to state 49
+
+
+state 44
+
+    (12) expression -> NAND LARROW expression COMMA expression . RARROW
+
+    RARROW          shift and go to state 50
+
+
+state 45
+
+    (13) expression -> NOR LARROW expression COMMA expression . RARROW
+
+    RARROW          shift and go to state 51
+
+
+state 46
+
+    (14) expression -> XNOR LARROW expression COMMA expression . RARROW
+
+    RARROW          shift and go to state 52
+
+
+state 47
+
+    (7) expression -> AND LARROW expression COMMA expression RARROW .
+
+    SEMICOLON       reduce using rule 7 (expression -> AND LARROW expression COMMA expression RARROW .)
+    COMMA           reduce using rule 7 (expression -> AND LARROW expression COMMA expression RARROW .)
+    RARROW          reduce using rule 7 (expression -> AND LARROW expression COMMA expression RARROW .)
+
+
+state 48
+
+    (8) expression -> OR LARROW expression COMMA expression RARROW .
+
+    SEMICOLON       reduce using rule 8 (expression -> OR LARROW expression COMMA expression RARROW .)
+    COMMA           reduce using rule 8 (expression -> OR LARROW expression COMMA expression RARROW .)
+    RARROW          reduce using rule 8 (expression -> OR LARROW expression COMMA expression RARROW .)
+
+
+state 49
+
+    (10) expression -> XOR LARROW expression COMMA expression RARROW .
+
+    SEMICOLON       reduce using rule 10 (expression -> XOR LARROW expression COMMA expression RARROW .)
+    COMMA           reduce using rule 10 (expression -> XOR LARROW expression COMMA expression RARROW .)
+    RARROW          reduce using rule 10 (expression -> XOR LARROW expression COMMA expression RARROW .)
+
+
+state 50
+
+    (12) expression -> NAND LARROW expression COMMA expression RARROW .
+
+    SEMICOLON       reduce using rule 12 (expression -> NAND LARROW expression COMMA expression RARROW .)
+    COMMA           reduce using rule 12 (expression -> NAND LARROW expression COMMA expression RARROW .)
+    RARROW          reduce using rule 12 (expression -> NAND LARROW expression COMMA expression RARROW .)
+
+
+state 51
+
+    (13) expression -> NOR LARROW expression COMMA expression RARROW .
+
+    SEMICOLON       reduce using rule 13 (expression -> NOR LARROW expression COMMA expression RARROW .)
+    COMMA           reduce using rule 13 (expression -> NOR LARROW expression COMMA expression RARROW .)
+    RARROW          reduce using rule 13 (expression -> NOR LARROW expression COMMA expression RARROW .)
+
+
+state 52
+
+    (14) expression -> XNOR LARROW expression COMMA expression RARROW .
+
+    SEMICOLON       reduce using rule 14 (expression -> XNOR LARROW expression COMMA expression RARROW .)
+    COMMA           reduce using rule 14 (expression -> XNOR LARROW expression COMMA expression RARROW .)
+    RARROW          reduce using rule 14 (expression -> XNOR LARROW expression COMMA expression RARROW .)
+

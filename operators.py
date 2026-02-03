@@ -5,6 +5,7 @@ def AND(a, b):
 # OR 
 def OR(a, b):
     return a | b
+
 # NOT 
 def NOT(a):
     return not a
